@@ -36,3 +36,83 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hero-banner h2 {
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.feature-card {
+  transition: all 0.3s ease-in-out !important;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.phone-number {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Dark mode specific styles */
+[data-theme='dark'] .hero-banner::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+[data-theme='dark'] .feature-card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Button hover effect */
+.MuiButton-contained {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out !important;
+}
+
+.MuiButton-contained:hover {
+  transform: translateY(-2px);
+}
